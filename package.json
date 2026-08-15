@@ -1,0 +1,66 @@
+{
+  "name": "@sutang/dsh-command-quarantine",
+  "description": "DSH command-line tool quarantine zone: intercept direct shell execution, route every command through submit/review/execute-by-id with full audit",
+  "version": "1.6.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js",
+    "test": "npm run check"
+  },
+  "keywords": [
+    "dsh",
+    "plugin",
+    "command-quarantine",
+    "security",
+    "sandbox",
+    "audit",
+    "agent"
+  ],
+  "author": {
+    "name": "sutimee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sutimee/dsh-command-quarantine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sutimee/dsh-command-quarantine/issues"
+  },
+  "homepage": "https://github.com/sutimee/dsh-command-quarantine#readme",
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.5",
+    "@deepseek-ai/dsh-settings": "^0.1.0-rc.5",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
